@@ -1,0 +1,21 @@
+.footer{
+	position: relative;
+	width: 100%; 
+	border-top: 1px solid #ccc;
+	padding-top: 15px;
+
+	a{
+		&:hover, &:focus, &:visited{
+			text-decoration: none;
+		}
+	}
+}
+
+@media screen and (min-width: $screen-xs-min){
+	.footer{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+}

@@ -1,0 +1,28 @@
+/*  Only colors differ between day and night. Sizes and positions are included in the common file*/
+
+.night{
+	background-color: #1D1D44;
+	color: #fff;
+
+	a{
+		color: #fff;
+	}
+
+	.city{
+		color: #ccc;
+	}
+
+	.footer{
+
+		border-color: #ccc;
+
+		a{
+			color: #9FBFDA;
+
+			&:hover{
+				color: #60B0F3;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title ng-bind="pageTitle"></title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@dorotaaadotcom">
+  <meta name="twitter:title" content="Template">
+  <meta name="twitter:description" content="UI developer">
+  <meta name="twitter:creator" content="@dorotaaaDotCom">
+  <meta name="twitter:image:src" content="https://pbs.twimg.com/profile_images/533326607956443136/EsW0j5Yp_normal.jpeg">
+  <meta property="og:title" content="Template" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://dorotaaa.com" />
+  <meta property="og:image" content="https://pbs.twimg.com/profile_images/533326607956443136/EsW0j5Yp_normal.jpeg" />
+  <meta property="og:description" content="Template">
+  <meta name="description" content="Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <base href="/">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- prod 
+<link rel="stylesheet" href="all.min.css">
+-->
+<!-- dev -->
+<link rel="stylesheet" href="/styles/app.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css">
+
+</head>
+<body ng-controller="HomeCtrl"  ng-init="init()" ng-class="{'day' : timeOfDay == 'day', 'night' : timeOfDay == 'night'}">
+    <div ng-class="{'loading' : loading}"></div>
+    
+    <!-- HEADER AND NAVBAR -->
+        <header>
+        </header>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div class="view-animate-container">
+        <div ng-view class="view-animate container-fluid"></div>
+    </div>
+    <!-- END OF MAIN CONTENT -->
+
+
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner text-center">
+          <ul class="social list-inline">
+            <li><a target="_blank" href="http://drtka.tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/DorotaaaDotCom"><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/dorotao"><i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank" href="https://github.com/dorotka/"><i class="fa fa-github"></i></a></li>
+          </ul>
+          
+
+          <p>
+            (c) 2015 <a href="http://www.dorotaoleszczuk.com">Dorota</a>. 
+            Using
+            <a href="http://www.angularjs.org">AngularJS</a>,
+            <a href="https://github.com/twbs/bootstrap-sass">Bootstrap Sass</a>,
+            <a href="http://thesassway.com/beginner/getting-started-with-sass-and-compass">Sass</a>,
+            <a href="https://developer.forecast.io">Forecast.io</a>,
+            <a href="http://momentjs.com">Moment.js</a>
+            and 
+            <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>.        
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- prod 
+    <script src="dist/scripts/top.min.js"></script>
+    <script src="dist/scripts/all.js"></script>
+    -->
+    <script src="scripts/vendor/jquery-2.1.4.min.js"></script>
+    <!--  <script src="scripts/vendor/angular-1.4.3.min.js"></script> -->
+    <script src="scripts/vendor/bootstrap.min.js"></script>
+    <script src="scripts/vendor/angular.js"></script>
+    <script src="scripts/vendor/angular-route.min.js"></script>
+    <script src="scripts/vendor/angular-resource.min.js"></script>
+    <script src="scripts/vendor/angular-ui-router.min.js"></script>
+    <script src="scripts/vendor/angular-animate.min.js"></script>
+    <script src="scripts/vendor/ui-bootstrap.min.js"></script>
+    <script src="scripts/vendor/angular-strap.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApGWQB-S6mXXeEYRdKVVyNW38atxqMrME&sensor=false"></script>
+    <script src="scripts/vendor/moment-with-locales.min.js"></script>
+    <script src="scripts/vendor/moment-timezone-with-data.min.js"></script>
+    <!-- modules -->
+     <script src="scripts/app/home/_module.js"></script>
+    <script src="scripts/app/home/controllers/HomeCtrl.js"></script>
+    <script src="scripts/app/home/services/forecastService.js"></script>
+    <script src="scripts/app/home/filters/dateTimeFilters.js"></script>
+    <script src="scripts/app/test-feature/_module.js"></script>
+    <script src="scripts/app/test-feature/controllers/TestFeatureCtrl.js"></script>
+    <!-- app -->
+    <script src="scripts/app/app.js"></script>
+   
+    <!-- <ng-include data-src="'javascript.tpl.html'"></ng-include> -->
+
+</body>
+</html>
