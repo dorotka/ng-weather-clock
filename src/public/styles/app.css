@@ -8794,6 +8794,10 @@ button.close {
   font-size: 8em;
 }
 /* line 27, src/_common.scss */
+.day .wi-8x, .night .wi-8x {
+  font-size: 8em;
+}
+/* line 35, src/_common.scss */
 .day div.loading, .night div.loading {
   position: fixed;
   top: 0;
@@ -8805,7 +8809,7 @@ button.close {
   filter: alpha(opacity=90);
   z-index: 10;
 }
-/* line 38, src/_common.scss */
+/* line 46, src/_common.scss */
 .day .loading-icon, .night .loading-icon {
   position: absolute;
   display: block;
@@ -8814,107 +8818,62 @@ button.close {
   width: 100%;
   height: auto;
 }
-/* line 47, src/_common.scss */
+/* line 55, src/_common.scss */
 .day .loading-icon span, .night .loading-icon span {
   color: #CC064C;
   padding-top: 50px;
 }
-/* line 53, src/_common.scss */
+/* line 61, src/_common.scss */
 .day .clock, .night .clock {
   font-size: 2em;
 }
-/* line 57, src/_common.scss */
+/* line 65, src/_common.scss */
 .day .clock time, .night .clock time {
   font-size: 1.8em;
 }
-/* line 64, src/_common.scss */
+/* line 72, src/_common.scss */
 .day .temp, .night .temp {
   font-size: 2em;
   margin-top: 10px;
 }
-/* line 68, src/_common.scss */
+/* line 76, src/_common.scss */
 .day .temp div:not(.units), .night .temp div:not(.units) {
   font-size: 2.2em;
 }
-/* line 72, src/_common.scss */
+/* line 80, src/_common.scss */
 .day .temp .selected, .night .temp .selected {
   font-weight: 600;
   color: #ccc;
   cursor: default;
 }
-/* line 76, src/_common.scss */
+/* line 84, src/_common.scss */
 .day .temp .selected:hover, .day .temp .selected:focus, .day .temp .selected:visited, .night .temp .selected:hover, .night .temp .selected:focus, .night .temp .selected:visited {
   text-decoration: none;
 }
-/* line 82, src/_common.scss */
+/* line 90, src/_common.scss */
 .day .location, .night .location {
   font-size: 1.7em;
   margin-top: 50px;
   margin-bottom: 30px;
   width: 100%;
 }
-/* line 89, src/_common.scss */
+/* line 97, src/_common.scss */
 .day .weather-icon, .night .weather-icon {
   width: 100%;
   height: 100%;
 }
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-clear-day, .night .weather-icon .icon-clear-day {
-  background: url(/media/images/weather-icons/clear-day.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-clear-night, .night .weather-icon .icon-clear-night {
-  background: url(/media/images/weather-icons/clear-night.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-rain, .night .weather-icon .icon-rain {
-  background: url(/media/images/weather-icons/rain.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-snow, .night .weather-icon .icon-snow {
-  background: url(/media/images/weather-icons/snow.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-sleet, .night .weather-icon .icon-sleet {
-  background: url(/media/images/weather-icons/sleet.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-wind, .night .weather-icon .icon-wind {
-  background: url(/media/images/weather-icons/wind.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-fog, .night .weather-icon .icon-fog {
-  background: url(/media/images/weather-icons/fog.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-cloudy, .night .weather-icon .icon-cloudy {
-  background: url(/media/images/weather-icons/cloudy.png) center left no-repeat;
-  background-size: 100px 100px;
-}
-/* line 95, src/_common.scss */
-.day .weather-icon .icon-partly-cloudy-day, .night .weather-icon .icon-partly-cloudy-day {
-  background: url(/media/images/weather-icons/partly-cloudy-day.png) center left no-repeat;
-  background-size: 100px 100px;
-}
 @media screen and (min-width: 480px) {
-  /* line 104, src/_common.scss */
+  /* line 113, src/_common.scss */
   .day .temp, .night .temp {
     margin-top: 50px;
   }
-  /* line 106, src/_common.scss */
+  /* line 115, src/_common.scss */
   .day .temp div:not(.units), .night .temp div:not(.units) {
     font-size: 4.5em;
   }
-  /* line 110, src/_common.scss */
+  /* line 119, src/_common.scss */
   .day .location, .night .location {
-    margin-top: 100px;
+    margin-top: 70px;
   }
 }
 

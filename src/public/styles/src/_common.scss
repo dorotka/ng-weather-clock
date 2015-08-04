@@ -24,6 +24,14 @@
 		font-size: 8em;
 	}
 
+	.wi-8x{
+		font-size: 8em;
+	}
+
+	%fade-in{
+		@include fadeIn();
+	}
+
 	div.loading{
 		position: fixed;
 		top: 0;
@@ -89,14 +97,15 @@
 	.weather-icon{
 		width: 100%;
 		height: 100%;
+		
 
-		$icons-list: clear-day clear-night rain snow sleet wind fog cloudy partly-cloudy-day or partly-cloudy-night;
-		@each $current-icon in $icons-list {
-		    .icon-#{$current-icon} { 
-		        background : url(/media/images/weather-icons/#{$current-icon}.png) center left no-repeat;
-		        background-size: 100px 100px;
-		    }
-		}
+		// $icons-list: clear-day clear-night rain snow sleet wind fog cloudy partly-cloudy-day or partly-cloudy-night;
+		// @each $current-icon in $icons-list {
+		//     .icon-#{$current-icon} { 
+		//         background : url(/media/images/weather-icons/#{$current-icon}.png) center left no-repeat;
+		//         background-size: 100px 100px;
+		//     }
+		// }
 	}
 
 	@media screen and (min-width: $screen-xs-min){
@@ -108,7 +117,7 @@
 			}
 		}
 		.location{
-			margin-top: 100px;
+			margin-top: 70px;
 		}
 	}
 

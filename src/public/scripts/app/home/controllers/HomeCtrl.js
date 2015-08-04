@@ -3,28 +3,49 @@ var home = angular.module('home');
 function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
 	$scope.init = function(){
-		$scope.loading = true;
-		$scope.getCurrentLocalTime();
-		$scope.getDay();
+		// variables 
+		//$scope.loading = true;
 		// units can be 'us' for F or 'si'/'ca' for C
 		$scope.unit = 'ca';
 		// can be 'night' or 'day'
 		$scope.timeOfDay;
 		$scope.getTimeOfDay();
 		$scope.icon;
-		$scope.assignIcon();
+		// Calls on load
 		$scope.initGeocoder();
 		$scope.getLocation();
+		$scope.getCurrentLocalTime();
+		$scope.getDay();
 	};
 
 	$scope.assignIcon = function(icon){
-		//TODO: Use after weather check and assign depending on weather
-		/* Icons correspond to those: clear-day, clear-night, rain, snow, sleet, wind, fog, 
-		cloudy, partly-cloudy-day, or partly-cloudy-night
-		*/
-		$scope.timeOfDay == 'night' ? $scope.icon = 'fa-moon-o' : $scope.icon = 'fa-sun-o';
-		//$scope.icon = icon;
-		//$scope.iconSrc = '/media/images/weather-icons/' + icon + '.svg';
+		
+		var weatherToIcon = [
+			{ 'sleet' : 'wi-sleet' },
+			{ 'clear-day' : 'wi-day-sunny' },
+			{ 'clear-night' : 'wi-night-clear' },
+			{ 'rain' : 'wi-rain' },
+			{ 'snow' : 'wi-snow' },
+			{ 'wind' : 'wi-sleet' },
+			{ 'fog' : 'wi-fog' },
+			{ 'cloudy' : 'wi-cloudy' },
+			{ 'partly-cloudy-day' : 'wi-day-cloudy' },
+			{ 'partly-cloudy-night' : 'wi-night-partly-cloudy' }
+		];
+
+		angular.forEach(weatherToIcon, function(data){
+			if(data[icon]) {
+				$scope.icon = data[icon];
+				$scope.showIcon = true;
+				return;
+			} 	
+		});
+
+		if(!$scope.icon ){
+			//default
+			$scope.icon = 'wi-night-partly-cloudy';
+			$scope.showIcon = true;
+		}
 	};
 
 	$scope.getCurrentLocalTime = function(){
@@ -91,24 +112,24 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
             // moment.unix($scope.weatherTime).format('hh:mm A'));
         }
 
-        ForecastService.getWeather(setConditions, lat,  lon, unit);
+        //ForecastService.getWeather(setConditions, lat,  lon, unit);
 
-        // get static weather data
-  //       ForecastService.getFakeWeather().get()
-		// .$promise.then(
-		//     //success
-		//     function( response ){
-		//     	console.log("Forcast response", response);
-		//     	$scope.currently = response.currently;
-		//     	$scope.assignIcon($scope.currently.icon);
-		//     	$scope.loading = false;
-		//     },
-		//     //error
-		//     function( error	 ){
-		//     	console.log("Forcast error", response);
-		//     	$scope.loading = false;
-		//     }
-		// );
+        //get static weather data
+        ForecastService.getFakeWeather().get()
+		.$promise.then(
+		    //success
+		    function( response ){
+		    	console.log("Forcast response", response);
+		    	$scope.currently = response.currently;
+		    	$scope.assignIcon($scope.currently.icon);
+		    	$scope.loading = false;
+		    },
+		    //error
+		    function( error	 ){
+		    	console.log("Forcast error", response);
+		    	$scope.loading = false;
+		    }
+		);
 
 	};
 
