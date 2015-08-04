@@ -8814,54 +8814,105 @@ button.close {
   width: 100%;
   height: auto;
 }
-/* line 48, src/_common.scss */
-.day .temp, .night .temp {
+/* line 47, src/_common.scss */
+.day .loading-icon span, .night .loading-icon span {
+  color: #CC064C;
+  padding-top: 50px;
+}
+/* line 53, src/_common.scss */
+.day .clock, .night .clock {
   font-size: 2em;
 }
-/* line 52, src/_common.scss */
-.day .temp div:not(.units), .night .temp div:not(.units) {
+/* line 57, src/_common.scss */
+.day .clock time, .night .clock time {
   font-size: 1.8em;
 }
-/* line 56, src/_common.scss */
+/* line 64, src/_common.scss */
+.day .temp, .night .temp {
+  font-size: 2em;
+  margin-top: 10px;
+}
+/* line 68, src/_common.scss */
+.day .temp div:not(.units), .night .temp div:not(.units) {
+  font-size: 2.2em;
+}
+/* line 72, src/_common.scss */
 .day .temp .selected, .night .temp .selected {
   font-weight: 600;
   color: #ccc;
   cursor: default;
 }
-/* line 60, src/_common.scss */
+/* line 76, src/_common.scss */
 .day .temp .selected:hover, .day .temp .selected:focus, .day .temp .selected:visited, .night .temp .selected:hover, .night .temp .selected:focus, .night .temp .selected:visited {
   text-decoration: none;
 }
-/* line 66, src/_common.scss */
-.day .clock, .night .clock {
-  font-size: 2em;
-  margin-top: 10px;
-}
-/* line 70, src/_common.scss */
-.day .clock .time, .night .clock .time {
-  font-size: 2.2em;
-}
-/* line 75, src/_common.scss */
+/* line 82, src/_common.scss */
 .day .location, .night .location {
   font-size: 1.7em;
   margin-top: 50px;
   margin-bottom: 30px;
   width: 100%;
 }
-/* line 83, src/_common.scss */
-.day .weather-icon.fa-sun-o, .night .weather-icon.fa-sun-o {
-  color: #FFE810;
+/* line 89, src/_common.scss */
+.day .weather-icon, .night .weather-icon {
+  width: 100%;
+  height: 100%;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-clear-day, .night .weather-icon .icon-clear-day {
+  background: url(/media/images/weather-icons/clear-day.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-clear-night, .night .weather-icon .icon-clear-night {
+  background: url(/media/images/weather-icons/clear-night.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-rain, .night .weather-icon .icon-rain {
+  background: url(/media/images/weather-icons/rain.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-snow, .night .weather-icon .icon-snow {
+  background: url(/media/images/weather-icons/snow.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-sleet, .night .weather-icon .icon-sleet {
+  background: url(/media/images/weather-icons/sleet.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-wind, .night .weather-icon .icon-wind {
+  background: url(/media/images/weather-icons/wind.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-fog, .night .weather-icon .icon-fog {
+  background: url(/media/images/weather-icons/fog.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-cloudy, .night .weather-icon .icon-cloudy {
+  background: url(/media/images/weather-icons/cloudy.png) center left no-repeat;
+  background-size: 100px 100px;
+}
+/* line 95, src/_common.scss */
+.day .weather-icon .icon-partly-cloudy-day, .night .weather-icon .icon-partly-cloudy-day {
+  background: url(/media/images/weather-icons/partly-cloudy-day.png) center left no-repeat;
+  background-size: 100px 100px;
 }
 @media screen and (min-width: 480px) {
-  /* line 90, src/_common.scss */
-  .day .clock, .night .clock {
+  /* line 104, src/_common.scss */
+  .day .temp, .night .temp {
     margin-top: 50px;
   }
-  /* line 92, src/_common.scss */
-  .day .clock .time, .night .clock .time {
-    font-size: 4em;
+  /* line 106, src/_common.scss */
+  .day .temp div:not(.units), .night .temp div:not(.units) {
+    font-size: 4.5em;
   }
-  /* line 96, src/_common.scss */
+  /* line 110, src/_common.scss */
   .day .location, .night .location {
     margin-top: 100px;
   }
@@ -8881,15 +8932,19 @@ button.close {
 .night .city {
   color: #ccc;
 }
-/* line 15, src/_night.scss */
+/* line 16, src/_night.scss */
+.night .weather-icon div, .night .weather-icon img {
+  color: #fff;
+}
+/* line 21, src/_night.scss */
 .night .footer {
   border-color: #ccc;
 }
-/* line 19, src/_night.scss */
+/* line 25, src/_night.scss */
 .night .footer a {
   color: #9FBFDA;
 }
-/* line 22, src/_night.scss */
+/* line 28, src/_night.scss */
 .night .footer a:hover {
   color: #60B0F3;
 }
