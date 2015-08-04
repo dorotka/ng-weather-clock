@@ -91,24 +91,24 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
             // moment.unix($scope.weatherTime).format('hh:mm A'));
         }
 
-        //ForecastService.getWeather(setConditions, lat,  lon, unit);
+        ForecastService.getWeather(setConditions, lat,  lon, unit);
 
         // get static weather data
-        ForecastService.getFakeWeather().get()
-		.$promise.then(
-		    //success
-		    function( response ){
-		    	console.log("Forcast response", response);
-		    	$scope.currently = response.currently;
-		    	$scope.assignIcon($scope.currently.icon);
-		    	$scope.loading = false;
-		    },
-		    //error
-		    function( error	 ){
-		    	console.log("Forcast error", response);
-		    	$scope.loading = false;
-		    }
-		);
+  //       ForecastService.getFakeWeather().get()
+		// .$promise.then(
+		//     //success
+		//     function( response ){
+		//     	console.log("Forcast response", response);
+		//     	$scope.currently = response.currently;
+		//     	$scope.assignIcon($scope.currently.icon);
+		//     	$scope.loading = false;
+		//     },
+		//     //error
+		//     function( error	 ){
+		//     	console.log("Forcast error", response);
+		//     	$scope.loading = false;
+		//     }
+		// );
 
 	};
 
