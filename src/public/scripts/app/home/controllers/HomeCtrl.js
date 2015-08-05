@@ -126,6 +126,11 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
 	};
 
+	$scope.changeUnit = function(unit){
+		$scope.unit = unit;
+		$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
+	};
+
     $scope.initGeocoder = function(){
         if(!$scope.geocoder) $scope.geocoder = new google.maps.Geocoder();
     };

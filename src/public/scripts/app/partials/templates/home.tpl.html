@@ -27,11 +27,15 @@
 				<span ng-if="unit == 'us'">{{currently.temperature | number : 0 }}&deg;F</span>
 				<span ng-if="unit == 'ca'">{{currently.temperature | number : 0 }}&deg;C</span>
 			</div>
-			<!-- <div class="units">
-				<a href="#" ng-class="{'selected' : unit == 'us'}">F&deg;</a>
+			<div class="units"> 
+				<a href="#" ng-class="{'selected' : unit == 'us'}" ng-click="changeUnit('us')">
+					F&deg;
+				</a>
 				/ 
-				<a href="#" ng-class="{'selected' : unit == 'ca'}">C&deg;</a>
-			</div> -->
+				<a href="#" ng-class="{'selected' : unit == 'ca'}" ng-click="changeUnit('ca')">
+					C&deg;
+				</a>
+			</div>
 
 			<summary>{{currently.summary }}</summary>
 		</div>
