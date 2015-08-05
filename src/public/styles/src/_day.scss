@@ -1,26 +1,30 @@
 /*  Only colors differ between day and night. Sizes and positions are included in the common file*/
 
 .day{
-	background-color: #8FDDF5;
-	color: #fff;
+	background-color: $day-blue;
+	color: $base-text;
+	@include day-fade(0, 3s);
 
 	a{
-		color: #fff;
+		color: $base-text;
 	}
 
 	.city{
-		color: #999;
+		color: $day-faded-text;
+	}
+
+	.wi-cloudy, .wi-rain, .wi-strong-wind{
+		color: $day-cloudy;
 	}
 
 	.footer{
-
 		border-color: #fff;
 
 		a{
-			color: #666;
+			color: $day-link-color;
 
 			&:hover{
-				color: #999;
+				color: $day-hover-link-color;
 			}
 		}
 	}

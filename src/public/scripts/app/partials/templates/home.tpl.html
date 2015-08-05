@@ -1,6 +1,6 @@
 <div class="row mtb-15">
 	<div class="col-xs-6">
-		<i class="wi {{icon}} wi-8x" ng-show="showIcon"></i>
+		<i class="wi {{icon}} wi-8x mtb-15" ng-show="showIcon"></i>
 	</div>
 	<div class="col-xs-6">
 		<div class="clock pull-right text-center">
@@ -21,13 +21,17 @@
 	        <img src="media/images/loading.gif" alt="" class="center-block text-center "/>
 	        <!-- <span>Loading data...</span> -->
 	    </div>
-		<div class="center-block text-center temp">
-			<div>{{currently.temperature | number : 0 }}</div>
-			<div class="units">
+		<div class="center-block text-center temp" ng-show="currently">
+			<div>
+				<!-- <span>{{currently.temperature | number : 0 }}</span> -->
+				<span ng-if="unit == 'us'">{{currently.temperature | number : 0 }}&deg;F</span>
+				<span ng-if="unit == 'ca'">{{currently.temperature | number : 0 }}&deg;C</span>
+			</div>
+			<!-- <div class="units">
 				<a href="#" ng-class="{'selected' : unit == 'us'}">F&deg;</a>
 				/ 
 				<a href="#" ng-class="{'selected' : unit == 'ca'}">C&deg;</a>
-			</div>
+			</div> -->
 
 			<summary>{{currently.summary }}</summary>
 		</div>

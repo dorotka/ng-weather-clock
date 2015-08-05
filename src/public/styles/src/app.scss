@@ -1,5 +1,7 @@
 @import "../vendor/bootstrap";
-@import 'mixins';
+@import 'variables';
+@import 'mixins'; 
+@import 'animations';
 @import 'common'; 
 @import "night";
 @import "day";

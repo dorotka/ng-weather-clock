@@ -1,21 +1,25 @@
 /*  Only colors differ between day and night. Sizes and positions are included in the common file*/
 
 .night{
-	background-color: #1D1D44;
-	color: #fff;
+	background-color: $nigth-blue;
+	color: $base-text;
+	@include night-fade(0, 3s);
 
 	a{
-		color: #fff;
+		color: $base-text;
 	}
 
 	.city{
-		color: #ccc;
+		color: $night-faded-text;
 	}
 
 	.weather-icon{
 		div, img{
-			color: #fff;
+			color: $base-text;
 		}
+	}
+	.wi-cloudy, .wi-rain, .wi-strong-wind{
+		color: $night-cloudy;
 	}
 
 	.footer{
@@ -23,10 +27,10 @@
 		border-color: #ccc;
 
 		a{
-			color: #9FBFDA;
+			color: $night-link-color;
 
-			&:hover{
-				color: #60B0F3;
+			&:hover, &:focus{
+				color: $night-hover-link-color;
 			}
 		}
 	}

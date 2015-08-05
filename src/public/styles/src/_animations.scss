@@ -1,0 +1,266 @@
+
+@mixin myAnimation($duration, $animation, $delay:0, $times:1, $easing:linear, $reverse:normal){
+
+    -webkit-animation: $animation $duration $easing $times $reverse;
+    -moz-animation:    $animation $duration $easing $times $reverse;
+    -o-animation:      $animation $duration $easing $times $reverse;
+    animation:         $animation $duration $easing $times $reverse;
+
+}
+
+// create your animation
+@mixin generate-keyframes($animationName) {
+
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+/* Fade in */
+
+@include generate-keyframes(fade-in){
+	0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+@mixin fade-in($duration, $delay){
+		@include myAnimation($duration, fade-in , $delay);
+}
+
+/* Fade out */
+
+@include generate-keyframes(fade-out){
+	0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@mixin fade-out($duration){
+		@include myAnimation($duration, fade-out);
+}
+
+/* Background fade */
+
+@include generate-keyframes(day-fade){
+	0% {
+    	background-color: #fff;
+    }
+	100% {
+	    background-color: $day-blue;
+	}
+}
+
+@mixin day-fade($delay, $duration){
+		@include myAnimation($duration, day-fade, $delay);
+}
+
+@include generate-keyframes(night-fade){
+	0% {
+    	background-color: #fff;
+    }
+    50% {
+    	background-color: $day-blue;
+    }
+	100% {
+	    background-color: $nigth-blue;
+	}
+}
+
+@mixin night-fade($delay, $duration){
+		@include myAnimation($duration, night-fade, $delay);
+}
+
+/* Expand up */
+
+@include generate-keyframes(slide-expand-up){
+	0% {
+		transform: translateY(100%) scaleX(0.5);
+	}
+	30%{
+		transform: translateY(-8%) scaleX(0.5);
+	}	
+	40%{
+		transform: translateY(2%) scaleX(0.5);
+	}
+	50%{
+		transform: translateY(0%) scaleX(1.1);
+	}
+	60%{
+		transform: translateY(0%) scaleX(0.9);		
+	}
+	70% {
+		transform: translateY(0%) scaleX(1.05);
+	}			
+	80%{
+		transform: translateY(0%) scaleX(0.95);		
+	}
+	90% {
+		transform: translateY(0%) scaleX(1.02);
+	}	
+	100%{
+		transform: translateY(0%) scaleX(1);		
+	}
+}
+
+
+@mixin expand-up($delay, $duration){
+		@include myAnimation($duration, slide-expand-up, $delay, 1, ease-out);
+}
+
+/* Slide left */
+
+@include generate-keyframes(slide-left){
+	0% {
+		transform: translateX(150%);
+	}
+	50%{
+		transform: translateX(-8%);
+	}
+	65%{
+		transform: translateX(4%);
+	}
+	80%{
+		transform: translateX(-4%);
+	}
+	95%{
+		transform: translateX(2%);
+	}			
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@mixin slide-left($duration, $delay, $times){
+		@include myAnimation($duration, slide-left, $delay, $times, ease-in-out);
+}
+ 
+/* Pulse and rotate*/
+
+@include generate-keyframes(pulse-rotate){
+	0% {
+		transform: scale(0.90) rotate(-180deg);
+		opacity: 0.7;		
+	}
+	50% {
+		transform: scale(1) rotate(0deg);
+		opacity: 1;	
+	}	
+	100% {
+		transform: scale(0.90) rotate(180deg);
+		opacity: 0.7;	
+	}
+}
+
+@mixin pulse($duration, $delay, $times){
+		@include myAnimation($duration, pulse-rotate, $delay, $times);
+}
+
+/* Pulse */
+
+@include generate-keyframes(pulse-night){
+	0% {
+		transform: scale(0.95) rotate(4deg);
+		opacity: 0.7;		
+	}
+	50% {
+		transform: scale(1) rotate(0deg);
+		opacity: 1;	
+	}	
+	100% {
+		transform: scale(0.95) rotate(4deg);
+		opacity: 0.7;	
+	}
+}
+
+@mixin pulse-night($duration, $delay, $times){
+		@include myAnimation($duration, pulse-night, $delay, $times);
+}
+
+/* Chill */
+
+@include generate-keyframes(chill){
+	0% {
+		transform: translateX(8%) rotate(-1deg);
+		opacity: 0.7;		
+	}
+	50% {
+		transform: translateX(-4%) rotate(0deg);
+		opacity: 1;	
+	}	
+	100% {
+		transform: translateX(8%) rotate(-1deg);
+		opacity: 0.7;	
+	}
+}
+
+@mixin chill($duration, $delay, $times){
+		@include myAnimation($duration, chill, $delay, $times);
+}
+
+/* slight rotation */
+
+@include generate-keyframes(rotate){
+	0% {
+		transform: rotate(-4deg);	
+	}
+	50% {
+		transform: rotate(4deg);
+	}
+	100% {
+		transform: rotate(-4deg);	
+	}
+}
+
+@mixin rotate($duration, $delay, $times){
+		@include myAnimation($duration, rotate, $delay, $times);
+}
+
+/* Stretch and slide */
+
+@include generate-keyframes(stretch-slide){
+	0% {
+		transform: scaleX(1) translateX(-8%);
+	}
+	50% {
+		transform: scaleX(0.9) translateX(16%);
+	}
+	100% {
+		transform: scaleX(1) translateX(-8%);
+	}
+}
+
+@mixin stretch-slide($duration, $delay, $times){
+		@include myAnimation($duration, stretch-slide, $delay, $times, ease-out);
+}
+
+/* Slide in from left */
+
+@include generate-keyframes(left-in){
+	0% {
+		transform: translateX(-100%);
+		opacity: 0.5;		
+	}
+	95% {
+		transform: translateX(2%);
+		opacity: 1;	
+	}
+	100% {
+		transform: translateX(0%);
+		opacity: 1;	
+	}
+}
+
+@mixin left-in($delay, $duration){
+		@include myAnimation($duration, left-in, $delay, 1, ease-in-out);
+}
+
+

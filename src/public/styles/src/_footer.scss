@@ -1,4 +1,5 @@
 .footer{
+	@include fade-in(5s, 2s);
 	position: relative;
 	width: 100%; 
 	border-top: 1px solid #ccc;

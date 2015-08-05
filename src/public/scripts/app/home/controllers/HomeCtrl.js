@@ -26,7 +26,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 			{ 'clear-night' : 'wi-night-clear' },
 			{ 'rain' : 'wi-rain' },
 			{ 'snow' : 'wi-snow' },
-			{ 'wind' : 'wi-sleet' },
+			{ 'wind' : 'wi-strong-wind' },
 			{ 'fog' : 'wi-fog' },
 			{ 'cloudy' : 'wi-cloudy' },
 			{ 'partly-cloudy-day' : 'wi-day-cloudy' },
@@ -121,7 +121,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		    function( response ){
 		    	console.log("Forcast response", response);
 		    	$scope.currently = response.currently;
-		    	$scope.assignIcon($scope.currently.icon);
+		    	$scope.assignIcon('clear-night');
 		    	$scope.loading = false;
 		    },
 		    //error

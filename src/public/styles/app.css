@@ -8769,6 +8769,665 @@ button.close {
     display: none !important;
   }
 }
+/* Fade in */
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Fade out */
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Background fade */
+@-webkit-keyframes day-fade {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #8FDDF5;
+  }
+}
+@-moz-keyframes day-fade {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #8FDDF5;
+  }
+}
+@-o-keyframes day-fade {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #8FDDF5;
+  }
+}
+@keyframes day-fade {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #8FDDF5;
+  }
+}
+@-webkit-keyframes night-fade {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #8FDDF5;
+  }
+  100% {
+    background-color: #1D1D44;
+  }
+}
+@-moz-keyframes night-fade {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #8FDDF5;
+  }
+  100% {
+    background-color: #1D1D44;
+  }
+}
+@-o-keyframes night-fade {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #8FDDF5;
+  }
+  100% {
+    background-color: #1D1D44;
+  }
+}
+@keyframes night-fade {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #8FDDF5;
+  }
+  100% {
+    background-color: #1D1D44;
+  }
+}
+/* Expand up */
+@-webkit-keyframes slide-expand-up {
+  0% {
+    transform: translateY(100%) scaleX(0.5);
+  }
+  30% {
+    transform: translateY(-8%) scaleX(0.5);
+  }
+  40% {
+    transform: translateY(2%) scaleX(0.5);
+  }
+  50% {
+    transform: translateY(0%) scaleX(1.1);
+  }
+  60% {
+    transform: translateY(0%) scaleX(0.9);
+  }
+  70% {
+    transform: translateY(0%) scaleX(1.05);
+  }
+  80% {
+    transform: translateY(0%) scaleX(0.95);
+  }
+  90% {
+    transform: translateY(0%) scaleX(1.02);
+  }
+  100% {
+    transform: translateY(0%) scaleX(1);
+  }
+}
+@-moz-keyframes slide-expand-up {
+  0% {
+    transform: translateY(100%) scaleX(0.5);
+  }
+  30% {
+    transform: translateY(-8%) scaleX(0.5);
+  }
+  40% {
+    transform: translateY(2%) scaleX(0.5);
+  }
+  50% {
+    transform: translateY(0%) scaleX(1.1);
+  }
+  60% {
+    transform: translateY(0%) scaleX(0.9);
+  }
+  70% {
+    transform: translateY(0%) scaleX(1.05);
+  }
+  80% {
+    transform: translateY(0%) scaleX(0.95);
+  }
+  90% {
+    transform: translateY(0%) scaleX(1.02);
+  }
+  100% {
+    transform: translateY(0%) scaleX(1);
+  }
+}
+@-o-keyframes slide-expand-up {
+  0% {
+    transform: translateY(100%) scaleX(0.5);
+  }
+  30% {
+    transform: translateY(-8%) scaleX(0.5);
+  }
+  40% {
+    transform: translateY(2%) scaleX(0.5);
+  }
+  50% {
+    transform: translateY(0%) scaleX(1.1);
+  }
+  60% {
+    transform: translateY(0%) scaleX(0.9);
+  }
+  70% {
+    transform: translateY(0%) scaleX(1.05);
+  }
+  80% {
+    transform: translateY(0%) scaleX(0.95);
+  }
+  90% {
+    transform: translateY(0%) scaleX(1.02);
+  }
+  100% {
+    transform: translateY(0%) scaleX(1);
+  }
+}
+@keyframes slide-expand-up {
+  0% {
+    transform: translateY(100%) scaleX(0.5);
+  }
+  30% {
+    transform: translateY(-8%) scaleX(0.5);
+  }
+  40% {
+    transform: translateY(2%) scaleX(0.5);
+  }
+  50% {
+    transform: translateY(0%) scaleX(1.1);
+  }
+  60% {
+    transform: translateY(0%) scaleX(0.9);
+  }
+  70% {
+    transform: translateY(0%) scaleX(1.05);
+  }
+  80% {
+    transform: translateY(0%) scaleX(0.95);
+  }
+  90% {
+    transform: translateY(0%) scaleX(1.02);
+  }
+  100% {
+    transform: translateY(0%) scaleX(1);
+  }
+}
+/* Slide left */
+@-webkit-keyframes slide-left {
+  0% {
+    transform: translateX(150%);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  65% {
+    transform: translateX(4%);
+  }
+  80% {
+    transform: translateX(-4%);
+  }
+  95% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@-moz-keyframes slide-left {
+  0% {
+    transform: translateX(150%);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  65% {
+    transform: translateX(4%);
+  }
+  80% {
+    transform: translateX(-4%);
+  }
+  95% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@-o-keyframes slide-left {
+  0% {
+    transform: translateX(150%);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  65% {
+    transform: translateX(4%);
+  }
+  80% {
+    transform: translateX(-4%);
+  }
+  95% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(150%);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  65% {
+    transform: translateX(4%);
+  }
+  80% {
+    transform: translateX(-4%);
+  }
+  95% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+/* Pulse and rotate*/
+@-webkit-keyframes pulse-rotate {
+  0% {
+    transform: scale(0.9) rotate(-180deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+@-moz-keyframes pulse-rotate {
+  0% {
+    transform: scale(0.9) rotate(-180deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+@-o-keyframes pulse-rotate {
+  0% {
+    transform: scale(0.9) rotate(-180deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+@keyframes pulse-rotate {
+  0% {
+    transform: scale(0.9) rotate(-180deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+/* Pulse */
+@-webkit-keyframes pulse-night {
+  0% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+}
+@-moz-keyframes pulse-night {
+  0% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+}
+@-o-keyframes pulse-night {
+  0% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+}
+@keyframes pulse-night {
+  0% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95) rotate(4deg);
+    opacity: 0.7;
+  }
+}
+/* Chill */
+@-webkit-keyframes chill {
+  0% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-4%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+}
+@-moz-keyframes chill {
+  0% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-4%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+}
+@-o-keyframes chill {
+  0% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-4%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+}
+@keyframes chill {
+  0% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-4%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(8%) rotate(-1deg);
+    opacity: 0.7;
+  }
+}
+/* slight rotation */
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+@-moz-keyframes rotate {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+@-o-keyframes rotate {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+/* Stretch and slide */
+@-webkit-keyframes stretch-slide {
+  0% {
+    transform: scaleX(1) translateX(-8%);
+  }
+  50% {
+    transform: scaleX(0.9) translateX(16%);
+  }
+  100% {
+    transform: scaleX(1) translateX(-8%);
+  }
+}
+@-moz-keyframes stretch-slide {
+  0% {
+    transform: scaleX(1) translateX(-8%);
+  }
+  50% {
+    transform: scaleX(0.9) translateX(16%);
+  }
+  100% {
+    transform: scaleX(1) translateX(-8%);
+  }
+}
+@-o-keyframes stretch-slide {
+  0% {
+    transform: scaleX(1) translateX(-8%);
+  }
+  50% {
+    transform: scaleX(0.9) translateX(16%);
+  }
+  100% {
+    transform: scaleX(1) translateX(-8%);
+  }
+}
+@keyframes stretch-slide {
+  0% {
+    transform: scaleX(1) translateX(-8%);
+  }
+  50% {
+    transform: scaleX(0.9) translateX(16%);
+  }
+  100% {
+    transform: scaleX(1) translateX(-8%);
+  }
+}
+/* Slide in from left */
+@-webkit-keyframes left-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  95% {
+    transform: translateX(2%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@-moz-keyframes left-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  95% {
+    transform: translateX(2%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@-o-keyframes left-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  95% {
+    transform: translateX(2%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes left-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  95% {
+    transform: translateX(2%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
 /* line 4, src/_common.scss */
 .day .mtb-15, .night .mtb-15 {
   margin-top: 15px;
@@ -8797,7 +9456,7 @@ button.close {
 .day .wi-8x, .night .wi-8x {
   font-size: 8em;
 }
-/* line 35, src/_common.scss */
+/* line 31, src/_common.scss */
 .day div.loading, .night div.loading {
   position: fixed;
   top: 0;
@@ -8809,7 +9468,7 @@ button.close {
   filter: alpha(opacity=90);
   z-index: 10;
 }
-/* line 46, src/_common.scss */
+/* line 42, src/_common.scss */
 .day .loading-icon, .night .loading-icon {
   position: absolute;
   display: block;
@@ -8818,60 +9477,106 @@ button.close {
   width: 100%;
   height: auto;
 }
-/* line 55, src/_common.scss */
+/* line 51, src/_common.scss */
 .day .loading-icon span, .night .loading-icon span {
   color: #CC064C;
   padding-top: 50px;
 }
-/* line 61, src/_common.scss */
+/* line 57, src/_common.scss */
 .day .clock, .night .clock {
+  -webkit-animation: fade-in 5s linear 1 normal;
+  -moz-animation: fade-in 5s linear 1 normal;
+  -o-animation: fade-in 5s linear 1 normal;
+  animation: fade-in 5s linear 1 normal;
   font-size: 2em;
 }
-/* line 65, src/_common.scss */
+/* line 61, src/_common.scss */
 .day .clock time, .night .clock time {
   font-size: 1.8em;
 }
-/* line 72, src/_common.scss */
+/* line 68, src/_common.scss */
 .day .temp, .night .temp {
   font-size: 2em;
   margin-top: 10px;
+  -webkit-animation: left-in 1.5s ease-in-out 1 normal;
+  -moz-animation: left-in 1.5s ease-in-out 1 normal;
+  -o-animation: left-in 1.5s ease-in-out 1 normal;
+  animation: left-in 1.5s ease-in-out 1 normal;
 }
-/* line 76, src/_common.scss */
+/* line 74, src/_common.scss */
 .day .temp div:not(.units), .night .temp div:not(.units) {
   font-size: 2.2em;
 }
-/* line 80, src/_common.scss */
+/* line 77, src/_common.scss */
+.day .temp div:not(.units) span, .night .temp div:not(.units) span {
+  padding: 0;
+  margin: 0;
+}
+/* line 83, src/_common.scss */
 .day .temp .selected, .night .temp .selected {
-  font-weight: 600;
   color: #ccc;
   cursor: default;
 }
-/* line 84, src/_common.scss */
+/* line 87, src/_common.scss */
 .day .temp .selected:hover, .day .temp .selected:focus, .day .temp .selected:visited, .night .temp .selected:hover, .night .temp .selected:focus, .night .temp .selected:visited {
   text-decoration: none;
 }
-/* line 90, src/_common.scss */
+/* line 93, src/_common.scss */
 .day .location, .night .location {
   font-size: 1.7em;
   margin-top: 50px;
   margin-bottom: 30px;
   width: 100%;
+  -webkit-animation: fade-in 5s linear 1 normal;
+  -moz-animation: fade-in 5s linear 1 normal;
+  -o-animation: fade-in 5s linear 1 normal;
+  animation: fade-in 5s linear 1 normal;
 }
-/* line 97, src/_common.scss */
+/* line 101, src/_common.scss */
 .day .weather-icon, .night .weather-icon {
   width: 100%;
   height: 100%;
 }
+/* line 106, src/_common.scss */
+.day .wi-day-sunny, .night .wi-day-sunny {
+  color: #FFDC00;
+  -webkit-animation: pulse-rotate 4s linear infinite normal;
+  -moz-animation: pulse-rotate 4s linear infinite normal;
+  -o-animation: pulse-rotate 4s linear infinite normal;
+  animation: pulse-rotate 4s linear infinite normal;
+}
+/* line 110, src/_common.scss */
+.day .wi-cloudy, .day .wi-rain, .day .wi-day-cloudy, .day .wi-night-partly-cloudy, .day .wi-fog, .night .wi-cloudy, .night .wi-rain, .night .wi-day-cloudy, .night .wi-night-partly-cloudy, .night .wi-fog {
+  -webkit-animation: chill 4s linear infinite normal;
+  -moz-animation: chill 4s linear infinite normal;
+  -o-animation: chill 4s linear infinite normal;
+  animation: chill 4s linear infinite normal;
+}
+/* line 113, src/_common.scss */
+.day .wi-strong-wind, .night .wi-strong-wind {
+  -webkit-animation: stretch-slide 3s ease-out infinite normal;
+  -moz-animation: stretch-slide 3s ease-out infinite normal;
+  -o-animation: stretch-slide 3s ease-out infinite normal;
+  animation: stretch-slide 3s ease-out infinite normal;
+}
+/* line 116, src/_common.scss */
+.day .wi-night-clear, .night .wi-night-clear {
+  color: #E8DC91;
+  -webkit-animation: pulse-night 4s linear infinite normal;
+  -moz-animation: pulse-night 4s linear infinite normal;
+  -o-animation: pulse-night 4s linear infinite normal;
+  animation: pulse-night 4s linear infinite normal;
+}
 @media screen and (min-width: 480px) {
-  /* line 113, src/_common.scss */
+  /* line 123, src/_common.scss */
   .day .temp, .night .temp {
     margin-top: 50px;
   }
-  /* line 115, src/_common.scss */
+  /* line 125, src/_common.scss */
   .day .temp div:not(.units), .night .temp div:not(.units) {
     font-size: 4.5em;
   }
-  /* line 119, src/_common.scss */
+  /* line 129, src/_common.scss */
   .day .location, .night .location {
     margin-top: 70px;
   }
@@ -8882,30 +9587,38 @@ button.close {
 .night {
   background-color: #1D1D44;
   color: #fff;
+  -webkit-animation: night-fade 3s linear 1 normal;
+  -moz-animation: night-fade 3s linear 1 normal;
+  -o-animation: night-fade 3s linear 1 normal;
+  animation: night-fade 3s linear 1 normal;
 }
-/* line 7, src/_night.scss */
+/* line 8, src/_night.scss */
 .night a {
   color: #fff;
 }
-/* line 11, src/_night.scss */
+/* line 12, src/_night.scss */
 .night .city {
   color: #ccc;
 }
-/* line 16, src/_night.scss */
+/* line 17, src/_night.scss */
 .night .weather-icon div, .night .weather-icon img {
   color: #fff;
 }
 /* line 21, src/_night.scss */
+.night .wi-cloudy, .night .wi-rain, .night .wi-strong-wind {
+  color: #66CDF3;
+}
+/* line 25, src/_night.scss */
 .night .footer {
   border-color: #ccc;
 }
-/* line 25, src/_night.scss */
+/* line 29, src/_night.scss */
 .night .footer a {
   color: #9FBFDA;
 }
-/* line 28, src/_night.scss */
-.night .footer a:hover {
-  color: #60B0F3;
+/* line 32, src/_night.scss */
+.night .footer a:hover, .night .footer a:focus {
+  color: #e9f0f6;
 }
 
 /*  Only colors differ between day and night. Sizes and positions are included in the common file*/
@@ -8913,42 +9626,54 @@ button.close {
 .day {
   background-color: #8FDDF5;
   color: #fff;
+  -webkit-animation: day-fade 3s linear 1 normal;
+  -moz-animation: day-fade 3s linear 1 normal;
+  -o-animation: day-fade 3s linear 1 normal;
+  animation: day-fade 3s linear 1 normal;
 }
-/* line 7, src/_day.scss */
+/* line 8, src/_day.scss */
 .day a {
   color: #fff;
 }
-/* line 11, src/_day.scss */
+/* line 12, src/_day.scss */
 .day .city {
   color: #999;
 }
-/* line 15, src/_day.scss */
+/* line 16, src/_day.scss */
+.day .wi-cloudy, .day .wi-rain, .day .wi-strong-wind {
+  color: #D0E6EF;
+}
+/* line 20, src/_day.scss */
 .day .footer {
   border-color: #fff;
 }
-/* line 19, src/_day.scss */
+/* line 23, src/_day.scss */
 .day .footer a {
   color: #666;
 }
-/* line 22, src/_day.scss */
+/* line 26, src/_day.scss */
 .day .footer a:hover {
-  color: #999;
+  color: #999999;
 }
 
 /* line 1, src/_footer.scss */
 .footer {
+  -webkit-animation: fade-in 5s linear 1 normal;
+  -moz-animation: fade-in 5s linear 1 normal;
+  -o-animation: fade-in 5s linear 1 normal;
+  animation: fade-in 5s linear 1 normal;
   position: relative;
   width: 100%;
   border-top: 1px solid #ccc;
   padding-top: 15px;
 }
-/* line 8, src/_footer.scss */
+/* line 9, src/_footer.scss */
 .footer a:hover, .footer a:focus, .footer a:visited {
   text-decoration: none;
 }
 
 @media screen and (min-width: 480px) {
-  /* line 15, src/_footer.scss */
+  /* line 16, src/_footer.scss */
   .footer {
     position: fixed;
     bottom: 0;

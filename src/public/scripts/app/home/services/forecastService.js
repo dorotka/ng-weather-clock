@@ -30,12 +30,6 @@ function ForecastService($resource, $http) {
         getWeather: getWeather,
         getFakeWeather : getFakeWeather
     };
-    // console.log("service");
-    // return {
-
-    //     Conditions: $resource('https://api.forecast.io/forecast/d5c4f7fbc68f86a1658a5a74dfcd082f/:latitude,:longitude?units=[:settings]', {latitude : '@latitude', longitude : '@longitude', settings : '@settings'}), 
-    //     MyConditions: $resource('/scripts/app/nyforcast.json', {})
-    // };
 
 }
 
