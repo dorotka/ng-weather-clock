@@ -9506,22 +9506,23 @@ button.close {
 /* line 74, src/_common.scss */
 .day .temp div:not(.units), .night .temp div:not(.units) {
   font-size: 2.2em;
+  min-height: 180px;
 }
-/* line 77, src/_common.scss */
+/* line 78, src/_common.scss */
 .day .temp div:not(.units) span, .night .temp div:not(.units) span {
   padding: 0;
   margin: 0;
 }
-/* line 83, src/_common.scss */
+/* line 85, src/_common.scss */
 .day .temp .selected, .night .temp .selected {
   color: #ccc;
   cursor: default;
 }
-/* line 87, src/_common.scss */
+/* line 89, src/_common.scss */
 .day .temp .selected:hover, .day .temp .selected:focus, .day .temp .selected:visited, .night .temp .selected:hover, .night .temp .selected:focus, .night .temp .selected:visited {
   text-decoration: none;
 }
-/* line 93, src/_common.scss */
+/* line 95, src/_common.scss */
 .day .location, .night .location {
   font-size: 1.7em;
   margin-top: 50px;
@@ -9532,12 +9533,12 @@ button.close {
   -o-animation: fade-in 5s linear 1 normal;
   animation: fade-in 5s linear 1 normal;
 }
-/* line 101, src/_common.scss */
+/* line 103, src/_common.scss */
 .day .weather-icon, .night .weather-icon {
   width: 100%;
   height: 100%;
 }
-/* line 106, src/_common.scss */
+/* line 108, src/_common.scss */
 .day .wi-day-sunny, .night .wi-day-sunny {
   color: #FFDC00;
   -webkit-animation: pulse-rotate 4s linear infinite normal;
@@ -9545,21 +9546,21 @@ button.close {
   -o-animation: pulse-rotate 4s linear infinite normal;
   animation: pulse-rotate 4s linear infinite normal;
 }
-/* line 110, src/_common.scss */
+/* line 112, src/_common.scss */
 .day .wi-cloudy, .day .wi-rain, .day .wi-day-cloudy, .day .wi-night-partly-cloudy, .day .wi-fog, .night .wi-cloudy, .night .wi-rain, .night .wi-day-cloudy, .night .wi-night-partly-cloudy, .night .wi-fog {
   -webkit-animation: chill 4s linear infinite normal;
   -moz-animation: chill 4s linear infinite normal;
   -o-animation: chill 4s linear infinite normal;
   animation: chill 4s linear infinite normal;
 }
-/* line 113, src/_common.scss */
+/* line 115, src/_common.scss */
 .day .wi-strong-wind, .night .wi-strong-wind {
   -webkit-animation: stretch-slide 3s ease-out infinite normal;
   -moz-animation: stretch-slide 3s ease-out infinite normal;
   -o-animation: stretch-slide 3s ease-out infinite normal;
   animation: stretch-slide 3s ease-out infinite normal;
 }
-/* line 116, src/_common.scss */
+/* line 118, src/_common.scss */
 .day .wi-night-clear, .night .wi-night-clear {
   color: #E8DC91;
   -webkit-animation: pulse-night 4s linear infinite normal;
@@ -9568,15 +9569,15 @@ button.close {
   animation: pulse-night 4s linear infinite normal;
 }
 @media screen and (min-width: 480px) {
-  /* line 123, src/_common.scss */
+  /* line 125, src/_common.scss */
   .day .temp, .night .temp {
     margin-top: 50px;
   }
-  /* line 125, src/_common.scss */
+  /* line 127, src/_common.scss */
   .day .temp div:not(.units), .night .temp div:not(.units) {
     font-size: 4.5em;
   }
-  /* line 129, src/_common.scss */
+  /* line 131, src/_common.scss */
   .day .location, .night .location {
     margin-top: 70px;
   }

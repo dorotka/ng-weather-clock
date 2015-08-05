@@ -9,15 +9,72 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		$scope.unit = 'ca';
 		// can be 'night' or 'day'
 		$scope.timeOfDay;
-		$scope.getTimeOfDay();
 		$scope.icon;
+
 		// Calls on load
+		$scope.getTimeOfDay()
 		$scope.initGeocoder();
 		$scope.getLocation();
 		$scope.getCurrentLocalTime();
 		$scope.getDay();
 	};
 
+/* Time and date related functions */
+
+	$scope.getCurrentLocalTime = function(){
+		$scope.now = moment().format('hh:mm A');
+		var tickInterval = 1000;
+		
+		var tick = function(){
+			// once a full minute, change interval to 60000ms so we don't update every secons
+			if(tickInterval == 1000 && moment().second() == 0){
+				$interval.cancel($scope.stop);
+				tickInterval = 60000;
+				$scope.stop = $interval(tick, tickInterval);
+			}
+			$scope.now = moment().format('hh:mm A');
+		};
+
+		$scope.stop = $interval(tick, tickInterval);
+	};
+
+	$scope.getDay = function(){
+		$scope.dayOfWeek = moment().day();
+	}
+
+	$scope.getTimeOfDay = function(){
+		(moment().hour() < 7 || moment().hour() > 19) ? $scope.timeOfDay = 'night' : $scope.timeOfDay = 'day';
+	};
+
+/* Weather related functions */
+
+    $scope.getWeather = function(lat, lon, unit){
+
+        function setConditions(data){
+            console.log("Weather", data );
+            $scope.currently = data.currently;
+            //console.log("$scope.currently", $scope.currently, $scope.currently.temperature);
+            $scope.daily = data.daily;
+            $scope.hourly = data.hourly;
+            $scope.weatherTimezone = data.timezone;
+            $scope.alerts = data.alerts;
+            $scope.weatherTime = $scope.currently.time;
+            $scope.assignIcon($scope.currently.icon);
+            // console.log("time we are checking the weather for", moment.unix($scope.weatherTime).format('YYYY-MM-DDTHH:mm:ss'), 
+            // moment.unix($scope.weatherTime).format('hh:mm A'));
+        }
+
+        ForecastService.getWeather(setConditions, lat,  lon, unit);
+
+        //get static weather data
+        /*ForecastService.getFakeWeather().get()
+		.$promise.then(
+		    setConditions
+		);*/
+
+	};
+
+	// Method takes icon returned by forcast.io and assigns corresponding weater-icon class
 	$scope.assignIcon = function(icon){
 		
 		var weatherToIcon = [
@@ -41,48 +98,31 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 			} 	
 		});
 
+		//default
 		if(!$scope.icon ){
-			//default
 			$scope.icon = 'wi-night-partly-cloudy';
 			$scope.showIcon = true;
 		}
 	};
 
-	$scope.getCurrentLocalTime = function(){
-		$scope.now = moment().format('hh:mm A');
-		var tickInterval = 1000;
-		
-		var tick = function(){
-			// once a full minute, change interval to 60000ms
-			if(tickInterval == 1000 && moment().second() == 0){
-				$interval.cancel($scope.stop);
-				tickInterval = 60000;
-				$scope.stop = $interval(tick, tickInterval);
-			}
-			$scope.now = moment().format('hh:mm A');
-			//.tz("Europe/Berlin");
-		};
-
-		$scope.stop = $interval(tick, tickInterval);
+	//method changes units in use and sends another request for data since changing units will also change daily, hourly units + wind speed units etc..
+	$scope.changeUnit = function(unit){
+		$scope.currently.temperature = null;
+		$scope.unit = unit;
+		$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
 	};
 
-	$scope.getDay = function(){
-		$scope.dayOfWeek = moment().day();
-	}
-
-	$scope.getTimeOfDay = function(){
-		(moment().hour() < 7 || moment().hour() > 19) ? $scope.timeOfDay = 'night' : $scope.timeOfDay = 'day';
-	};
+/* Location related functions */
 
 	$scope.getLocation = function(){
 
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, showErr);
+            navigator.geolocation.getCurrentPosition(getPosition, showErr);
         } else {
             loc = "Geolocation is not supported by this browser.";
         }
 
-        function showPosition(position) {
+        function getPosition(position) {
         	$scope.lat = position.coords.latitude;
         	$scope.lon = position.coords.longitude;
 
@@ -94,42 +134,6 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
         	console.log("Error", response);
         }
     };
-
-    $scope.getWeather = function(lat, lon, unit){
-        console.log("lat, lon", lat, lon);
-
-        function setConditions(data){
-            console.log("Weather", data );
-            $scope.currently = data.currently;
-            console.log("$scope.currently", $scope.currently, $scope.currently.temperature);
-            $scope.daily = data.daily;
-            $scope.hourly = data.hourly;
-            $scope.weatherTimezone = data.timezone;
-            $scope.alerts = data.alerts;
-            $scope.weatherTime = $scope.currently.time;
-            $scope.assignIcon($scope.currently.icon);
-            // console.log("time we are checking the weather for", moment.unix($scope.weatherTime).format('YYYY-MM-DDTHH:mm:ss'), 
-            // moment.unix($scope.weatherTime).format('hh:mm A'));
-        }
-
-        ForecastService.getWeather(setConditions, lat,  lon, unit);
-
-        //get static weather data
-        /*ForecastService.getFakeWeather().get()
-		.$promise.then(
-		    setConditions,
-		    function( error	 ){
-		    	console.log("Forcast error", response);
-		    	$scope.loading = false;
-		    }
-		);*/
-
-	};
-
-	$scope.changeUnit = function(unit){
-		$scope.unit = unit;
-		$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
-	};
 
     $scope.initGeocoder = function(){
         if(!$scope.geocoder) $scope.geocoder = new google.maps.Geocoder();

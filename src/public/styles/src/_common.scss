@@ -73,10 +73,12 @@
 
 		div:not(.units){
 			font-size: 2.2em; 
+			min-height: 180px;
 
 			span{
 				padding: 0;
 				margin: 0;
+				//@include fade-in(3s, 0);
 			}
 		}
 

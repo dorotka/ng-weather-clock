@@ -23,9 +23,12 @@
 	    </div>
 		<div class="center-block text-center temp" ng-show="currently">
 			<div>
-				<!-- <span>{{currently.temperature | number : 0 }}</span> -->
-				<span ng-if="unit == 'us'">{{currently.temperature | number : 0 }}&deg;F</span>
-				<span ng-if="unit == 'ca'">{{currently.temperature | number : 0 }}&deg;C</span>
+				<span ng-if="unit == 'us' && currently.temperature">
+					{{currently.temperature | number : 0 }}&deg;F
+				</span>
+				<span ng-if="unit == 'ca' && currently.temperature">
+					{{currently.temperature | number : 0 }}&deg;C
+				</span>
 			</div>
 			<div class="units"> 
 				<a href="#" ng-class="{'selected' : unit == 'us'}" ng-click="changeUnit('us')">
