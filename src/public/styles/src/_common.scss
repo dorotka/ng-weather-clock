@@ -68,7 +68,6 @@
 	.temp{
 
 		font-size: 2em;
-		margin-top: 10px;
 		@include left-in(0, 1.5s);
 
 		div:not(.units){
@@ -94,10 +93,24 @@
 
 	.location{
 		font-size: 1.7em;
-		margin-top: 50px;
+		margin-top: 20px;
 		margin-bottom: 30px;
 		width: 100%; 
 		@include fade-in(5s, 0);
+	}
+
+	.hourly{
+		font-size: 1.2em;
+		overflow: auto;
+    	white-space: nowrap;
+
+		.hours{
+			opacity: 0.5;
+			padding-bottom: 10px;
+		}
+		.temps{
+			font-size: 1.3em;
+		}
 	}
 
 	.weather-icon{
@@ -123,13 +136,13 @@
 	@media screen and (min-width: $screen-xs-min){
 
 		.temp{
-			margin-top: 50px;
+			
 			div:not(.units){
 				font-size: 4.5em; 
 			}
 		}
 		.location{
-			margin-top: 70px;
+			margin-top: 30px;
 		}
 	}
 

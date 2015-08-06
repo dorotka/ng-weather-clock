@@ -51,17 +51,15 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
     $scope.getWeather = function(lat, lon, unit){
 
         function setConditions(data){
-            console.log("Weather", data );
+            //console.log("Weather", data );
             $scope.currently = data.currently;
-            //console.log("$scope.currently", $scope.currently, $scope.currently.temperature);
             $scope.daily = data.daily;
             $scope.hourly = data.hourly;
             $scope.weatherTimezone = data.timezone;
             $scope.alerts = data.alerts;
             $scope.weatherTime = $scope.currently.time;
             $scope.assignIcon($scope.currently.icon);
-            // console.log("time we are checking the weather for", moment.unix($scope.weatherTime).format('YYYY-MM-DDTHH:mm:ss'), 
-            // moment.unix($scope.weatherTime).format('hh:mm A'));
+            $scope.formatDates();
         }
 
         ForecastService.getWeather(setConditions, lat,  lon, unit);
@@ -71,7 +69,12 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		.$promise.then(
 		    setConditions
 		);*/
+	};
 
+	$scope.formatDates = function(){
+		angular.forEach($scope.hourly.data, function(hour){
+			hour.time = moment.unix(hour.time).format('hh A');
+		});
 	};
 
 	// Method takes icon returned by forcast.io and assigns corresponding weater-icon class
