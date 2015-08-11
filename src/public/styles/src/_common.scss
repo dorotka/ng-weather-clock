@@ -15,6 +15,12 @@
 		margin-top: 35px;
 		margin-bottom: 35px;
 	}
+
+	.mtb-45{
+		margin-top: 55px;
+		margin-bottom: 55px;
+	}
+
 	.mtb-55{
 		margin-top: 55px;
 		margin-bottom: 55px;
@@ -22,6 +28,14 @@
 
 	.fa-8x{
 		font-size: 8em;
+	}
+
+	.wi-2x{
+		font-size: 2em;
+	}
+
+	.wi-4x{
+		font-size: 4em;
 	}
 
 	.wi-8x{
@@ -56,10 +70,10 @@
 
 	.clock{
 		@include fade-in(5s, 0);
-		font-size: 2em;
+		font-size: 1.8em;
 
 		time{
-			font-size: 1.8em;
+			font-size: 1.5em;
 		}
 
 		
@@ -71,8 +85,8 @@
 		@include left-in(0, 1.5s);
 
 		div:not(.units){
-			font-size: 2.2em; 
-			min-height: 180px;
+			font-size: 2.9em; 
+			min-height: 160px;
 
 			span{
 				padding: 0;
@@ -94,7 +108,7 @@
 	.location{
 		font-size: 1.7em;
 		margin-top: 20px;
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 		width: 100%; 
 		@include fade-in(5s, 0);
 	}
@@ -138,11 +152,19 @@
 		.temp{
 			
 			div:not(.units){
-				font-size: 4.5em; 
+				font-size: 4em; 
 			}
 		}
 		.location{
-			margin-top: 30px;
+			margin-top: 20px;
+		}
+
+		.clock{
+			font-size: 2em;
+
+			time{
+				font-size: 1.8em;
+			}
 		}
 	}
 

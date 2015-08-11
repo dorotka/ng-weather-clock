@@ -52,16 +52,17 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
     $scope.getWeather = function(lat, lon, unit){
 
         function setConditions(data){
-            //console.log("Weather", data );
+            // console.log("Weather", data );
             $scope.currently = data.currently;
             $scope.daily = data.daily;
             $scope.hourly = data.hourly;
-            // console.log("$scope.hourly", $scope.hourly);
             $scope.weatherTimezone = data.timezone;
             $scope.alerts = data.alerts;
             $scope.weatherTime = $scope.currently.time;
-            $scope.assignIcon($scope.currently.icon);
+            $scope.assignIcons($scope.currently);
+            $scope.assignIcons($scope.hourly.data);
             $scope.formatDates();
+            // console.log("$scope.hourly", $scope.hourly);
         }
 
         ForecastService.getWeather(setConditions, lat,  lon, unit);
@@ -79,34 +80,50 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		});
 	};
 
+	$scope.weatherToIcon = [
+		{ 'sleet' : 'wi-sleet' },
+		{ 'clear-day' : 'wi-day-sunny' },
+		{ 'clear-night' : 'wi-night-clear' },
+		{ 'rain' : 'wi-rain' },
+		{ 'snow' : 'wi-snow' },
+		{ 'wind' : 'wi-strong-wind' },
+		{ 'fog' : 'wi-fog' },
+		{ 'cloudy' : 'wi-cloudy' },
+		{ 'partly-cloudy-day' : 'wi-day-cloudy' },
+		{ 'partly-cloudy-night' : 'wi-night-partly-cloudy' }
+	];
+
 	// Method takes icon returned by forcast.io and assigns corresponding weater-icon class
-	$scope.assignIcon = function(icon){
-		
-		var weatherToIcon = [
-			{ 'sleet' : 'wi-sleet' },
-			{ 'clear-day' : 'wi-day-sunny' },
-			{ 'clear-night' : 'wi-night-clear' },
-			{ 'rain' : 'wi-rain' },
-			{ 'snow' : 'wi-snow' },
-			{ 'wind' : 'wi-strong-wind' },
-			{ 'fog' : 'wi-fog' },
-			{ 'cloudy' : 'wi-cloudy' },
-			{ 'partly-cloudy-day' : 'wi-day-cloudy' },
-			{ 'partly-cloudy-night' : 'wi-night-partly-cloudy' }
-		];
+	$scope.assignIcons = function(conditions){
+		// if single condition
+		if(angular.isUndefined(conditions.length)){
+			angular.forEach($scope.weatherToIcon, function(data){
+				if(data[conditions.icon]) {
+					conditions.displayIcon = data[conditions.icon];
+					$scope.showIcon = true;
+					return;
+				} 	
+			});
 
-		angular.forEach(weatherToIcon, function(data){
-			if(data[icon]) {
-				$scope.icon = data[icon];
+			//default
+			if(!conditions.displayIcon ){
+				conditions.displayIcon = 'wi-night-partly-cloudy';
 				$scope.showIcon = true;
-				return;
-			} 	
-		});
-
-		//default
-		if(!$scope.icon ){
-			$scope.icon = 'wi-night-partly-cloudy';
-			$scope.showIcon = true;
+			}
+		// if multiple conditions (like hourly, daily)
+		} else{
+			angular.forEach(conditions, function(condition){
+				angular.forEach($scope.weatherToIcon, function(data){
+					if(data[condition.icon]) {
+						condition.displayIcon = data[condition.icon];
+						return;
+					} 	
+				});
+				//default
+				if(!condition.displayIcon ){
+					condition.displayIcon = 'wi-night-partly-cloudy';
+				}
+			});
 		}
 	};
 
