@@ -10,6 +10,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		// can be 'night' or 'day'
 		$scope.timeOfDay;
 		$scope.icon;
+		$scope.moment = moment().unix();
 
 		// Calls on load
 		$scope.getTimeOfDay()
@@ -55,6 +56,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
             $scope.currently = data.currently;
             $scope.daily = data.daily;
             $scope.hourly = data.hourly;
+            // console.log("$scope.hourly", $scope.hourly);
             $scope.weatherTimezone = data.timezone;
             $scope.alerts = data.alerts;
             $scope.weatherTime = $scope.currently.time;
@@ -73,7 +75,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
 	$scope.formatDates = function(){
 		angular.forEach($scope.hourly.data, function(hour){
-			hour.time = moment.unix(hour.time).format('hh A');
+			hour.timeFormatted = moment.unix(hour.time).format('hh A');
 		});
 	};
 

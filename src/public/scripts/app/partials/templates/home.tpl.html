@@ -58,8 +58,8 @@
 	<div class="col-lg-12 hourly">
 		<div class="mtb-10 text-center">
 			<ul class="list-inline">
-				<li ng-repeat="hourForcast in hourly.data" ng-if="hourForcast.time > now">
-					<span class="hours">{{hourForcast.time}}</span> 
+				<li ng-repeat="hourForcast in hourly.data | limitTo: 12" ng-if="hourForcast.time > moment">
+					<span class="hours">{{hourForcast.timeFormatted}}</span> 
 					<br> 
 					<span class="temps">{{hourForcast.temperature | number : 0}}&deg;</span>
 				</li>
