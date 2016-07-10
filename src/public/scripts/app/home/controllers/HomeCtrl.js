@@ -1,6 +1,6 @@
 var home = angular.module('home');
 
-function HomeCtrl($scope, ForecastService, $timeout, $interval) {
+function HomeCtrl($scope, ForecastService, $timeout, $interval, TimezoneService) {
 
 	$scope.init = function(){
 		// variables 
@@ -11,22 +11,24 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		$scope.timeOfDay;
 		$scope.icon;
 		$scope.moment = moment().unix();
-
+		$scope.askLocation = {'show': false};
 		// Calls on load
-		$scope.getTimeOfDay()
 		$scope.initGeocoder();
 		$scope.getLocation();
 		$scope.getCurrentLocalTime();
-		$scope.getDay();
 	};
 
 /* Time and date related functions */
 
-	$scope.getCurrentLocalTime = function(){
-
-		//TODO: get time for the specific locations selected
+	$scope.getCurrentLocalTime = function(time){
+		if(!time){
+			$scope.now = moment()
+			$scope.nowTime = $scope.now.format('hh:mm A');
+		} else{
+			$scope.now = moment(time);
+			$scope.nowTime = $scope.now.format('hh:mm A');
+		}
 		
-		$scope.now = moment().format('hh:mm A');
 		var tickInterval = 1000;
 		
 		var tick = function(){
@@ -40,14 +42,16 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 		};
 
 		$scope.stop = $interval(tick, tickInterval);
+		$scope.getDay();
+		$scope.getTimeOfDay();
 	};
 
 	$scope.getDay = function(){
-		$scope.dayOfWeek = moment().day();
+		$scope.dayOfWeek = $scope.now.day();
 	}
 
 	$scope.getTimeOfDay = function(){
-		(moment().hour() < 7 || moment().hour() > 19) ? $scope.timeOfDay = 'night' : $scope.timeOfDay = 'day';
+		($scope.now.hour() < 7 || $scope.now.hour() > 19) ? $scope.timeOfDay = 'night' : $scope.timeOfDay = 'day';
 	};
 
 /* Weather related functions */
@@ -80,13 +84,13 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
         }
         
         //TODO: change to true call
-        // ForecastService.getWeather(setConditions, lat,  lon, unit);
+        ForecastService.getWeather(setConditions, lat,  lon, unit);
 
         //get static weather data
-        ForecastService.getFakeWeather().get()
-		.$promise.then(
-		    setConditions
-		);
+  //       ForecastService.getFakeWeather().get()
+		// .$promise.then(
+		//     setConditions
+		// );
 	};
 
 	$scope.formatDates = function(){
@@ -144,6 +148,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
 	//method changes units in use and sends another request for data since changing units will also change daily, hourly units + wind speed units etc..
 	$scope.changeUnit = function(unit){
+		if(!unit || $scope.unit == unit) return;
 		$scope.currently.temperature = null;
 		$scope.unit = unit;
 		$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
@@ -156,7 +161,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
         if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
         		navigator.geolocation.getCurrentPosition(getPosition, showErr);
         } else {
-            $scope.askLocation = true;
+            $scope.askLocation.show = true;
         }
 
         function getPosition(position) {
@@ -169,7 +174,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
         function showErr (response){
         	console.log("Error", response);
-        	$scope.askLocation = true;
+        	$scope.askLocation.show = true;
         }
     };
 
@@ -177,17 +182,16 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
         var service = new google.maps.places.AutocompleteService();
         if(searchString != ''){
 	        service.getPlacePredictions({'input': searchString, 'types': ['(cities)']}, function(predictions, status){
-	        	console.log("predictions", predictions, status);
+	        	// console.log("predictions", predictions, status);
 	        	$scope.places = predictions;
 	        });
         }
     };
 
     $scope.selectPlace = function(place){
-    	console.log("place", place);
     	$scope.city = { 'long_name' : place.terms[0].value};
     	var id = place.id;
-    	console.log('placeId', id);
+    	// console.log('placeId', id);
 
 		$scope.getLatLng($scope.city.long_name);
     };
@@ -207,12 +211,25 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 			    }
 
 			    $scope.getWeather($scope.lat, $scope.lon, $scope.unit);
-			    $scope.askLocation = false;
+			    $scope.getTimezone($scope.lat, $scope.lon);
+			    $scope.askLocation.show = false;
             } else {
                 console.log("Geocoder failed due to: " + status);
             }
         });
 
+    };
+
+    $scope.getTimezone = function(lat, lng){
+    	TimezoneService.getTimezone(setTime, lat, lng);
+
+    	function setTime(response){
+    		if(response && response.time){
+    			$scope.getCurrentLocalTime(response.time);
+    		} else{
+    			console.log("Issue getting timezone data", data);
+    		}
+    	}
     };
 
     $scope.initGeocoder = function(){
@@ -253,4 +270,4 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
 }
 
-home.controller('HomeCtrl', ['$scope', 'ForecastService', '$timeout', '$interval', HomeCtrl]);
+home.controller('HomeCtrl', ['$scope', 'ForecastService', '$timeout', '$interval', 'TimezoneService', HomeCtrl]);

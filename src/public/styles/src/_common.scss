@@ -97,8 +97,9 @@
 
 		.selected{
 			
-			color: #ccc;
+			color: #126284;
 			cursor: default;
+			font-weight: 900;
 			&:hover, &:focus, &:visited {
 				text-decoration: none;
 			}
@@ -180,7 +181,7 @@
 			width: 100%;
 			height: 100%;
 			background-color: #fff;
-			@include opacity(0.6);
+			@include opacity(0.3);
 		}
 
 		.overlay-content{
@@ -190,7 +191,7 @@
 		    left: 33%;
 		    width: 33%;
 		    height: 45%;
-		    min-height: 400px;
+		    min-height: 420px;
 		    max-height: 450px;
 		    /* background-color: #fff; */
 		    color: #333;
@@ -201,7 +202,7 @@
 
 		    .places{
 		    	max-height: 350px;
-		    	overflow-y: scroll;
+		    	// overflow-y: scroll;
 
 		    	a{
 		    		display: block;
@@ -228,11 +229,15 @@
 		    	top: 12%;
 		    	left: 5%;
 		    	width: 95%;
-		    	min-height: 320px;
+		    	// min-height: 380px;
 		    	font-size: 1.3em;
 				
 				.places{
 			    	max-height: 200px;
+
+			    	a{
+			    		padding: 5px 0;
+			    	}
 			    }
 
 		    }
@@ -243,11 +248,9 @@
 	@media screen and (max-width: $screen-xs){
 		footer{
 			&.box-margin{
-				margin-top: 420px;
+				margin-top: 380px;
 			}
 		}
 	}
 	
-
-
-}
+} // end of day and night

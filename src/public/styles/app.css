@@ -9527,14 +9527,15 @@ button.close {
 }
 /* line 98, src/_common.scss */
 .day .temp .selected, .night .temp .selected {
-  color: #ccc;
+  color: #126284;
   cursor: default;
+  font-weight: 900;
 }
-/* line 102, src/_common.scss */
+/* line 103, src/_common.scss */
 .day .temp .selected:hover, .day .temp .selected:focus, .day .temp .selected:visited, .night .temp .selected:hover, .night .temp .selected:focus, .night .temp .selected:visited {
   text-decoration: none;
 }
-/* line 108, src/_common.scss */
+/* line 109, src/_common.scss */
 .day .location, .night .location {
   font-size: 1.7em;
   margin-top: 20px;
@@ -9545,27 +9546,27 @@ button.close {
   -o-animation: fade-in 5s linear 1 normal;
   animation: fade-in 5s linear 1 normal;
 }
-/* line 116, src/_common.scss */
+/* line 117, src/_common.scss */
 .day .hourly, .night .hourly {
   font-size: 1.2em;
   overflow: auto;
   white-space: nowrap;
 }
-/* line 121, src/_common.scss */
+/* line 122, src/_common.scss */
 .day .hourly .hours, .night .hourly .hours {
   opacity: 0.5;
   padding-bottom: 10px;
 }
-/* line 125, src/_common.scss */
+/* line 126, src/_common.scss */
 .day .hourly .temps, .night .hourly .temps {
   font-size: 1.3em;
 }
-/* line 130, src/_common.scss */
+/* line 131, src/_common.scss */
 .day .weather-icon, .night .weather-icon {
   width: 100%;
   height: 100%;
 }
-/* line 135, src/_common.scss */
+/* line 136, src/_common.scss */
 .day .wi-day-sunny, .night .wi-day-sunny {
   color: #FFDC00;
   -webkit-animation: pulse-rotate 4s linear infinite normal;
@@ -9573,21 +9574,21 @@ button.close {
   -o-animation: pulse-rotate 4s linear infinite normal;
   animation: pulse-rotate 4s linear infinite normal;
 }
-/* line 139, src/_common.scss */
+/* line 140, src/_common.scss */
 .day .wi-cloudy, .day .wi-rain, .day .wi-day-cloudy, .day .wi-night-partly-cloudy, .day .wi-fog, .night .wi-cloudy, .night .wi-rain, .night .wi-day-cloudy, .night .wi-night-partly-cloudy, .night .wi-fog {
   -webkit-animation: chill 4s linear infinite normal;
   -moz-animation: chill 4s linear infinite normal;
   -o-animation: chill 4s linear infinite normal;
   animation: chill 4s linear infinite normal;
 }
-/* line 142, src/_common.scss */
+/* line 143, src/_common.scss */
 .day .wi-strong-wind, .night .wi-strong-wind {
   -webkit-animation: stretch-slide 3s ease-out infinite normal;
   -moz-animation: stretch-slide 3s ease-out infinite normal;
   -o-animation: stretch-slide 3s ease-out infinite normal;
   animation: stretch-slide 3s ease-out infinite normal;
 }
-/* line 145, src/_common.scss */
+/* line 146, src/_common.scss */
 .day .wi-night-clear, .night .wi-night-clear {
   color: #E8DC91;
   -webkit-animation: pulse-night 4s linear infinite normal;
@@ -9596,41 +9597,41 @@ button.close {
   animation: pulse-night 4s linear infinite normal;
 }
 @media screen and (min-width: 480px) {
-  /* line 154, src/_common.scss */
+  /* line 155, src/_common.scss */
   .day .temp div:not(.units), .night .temp div:not(.units) {
     font-size: 4em;
   }
-  /* line 158, src/_common.scss */
+  /* line 159, src/_common.scss */
   .day .location, .night .location {
     margin-top: 20px;
   }
-  /* line 162, src/_common.scss */
+  /* line 163, src/_common.scss */
   .day .clock, .night .clock {
     font-size: 2em;
   }
-  /* line 165, src/_common.scss */
+  /* line 166, src/_common.scss */
   .day .clock time, .night .clock time {
     font-size: 1.8em;
   }
 }
-/* line 171, src/_common.scss */
+/* line 172, src/_common.scss */
 .day .overlay-container, .night .overlay-container {
   position: fixed;
   width: 100%;
   height: 100%;
   margin-left: -15px;
 }
-/* line 177, src/_common.scss */
+/* line 178, src/_common.scss */
 .day .overlay-container .overlay, .night .overlay-container .overlay {
   position: relative;
   z-index: 100;
   width: 100%;
   height: 100%;
   background-color: #fff;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+  opacity: 0.3;
+  filter: alpha(opacity=30);
 }
-/* line 186, src/_common.scss */
+/* line 187, src/_common.scss */
 .day .overlay-container .overlay-content, .night .overlay-container .overlay-content {
   position: absolute;
   z-index: 200;
@@ -9638,7 +9639,7 @@ button.close {
   left: 33%;
   width: 33%;
   height: 45%;
-  min-height: 400px;
+  min-height: 420px;
   max-height: 450px;
   /* background-color: #fff; */
   color: #333;
@@ -9647,52 +9648,54 @@ button.close {
   font-size: 2em;
   border: double 8px white;
 }
-/* line 202, src/_common.scss */
+/* line 203, src/_common.scss */
 .day .overlay-container .overlay-content .places, .night .overlay-container .overlay-content .places {
   max-height: 350px;
-  overflow-y: scroll;
 }
-/* line 206, src/_common.scss */
+/* line 207, src/_common.scss */
 .day .overlay-container .overlay-content .places a, .night .overlay-container .overlay-content .places a {
   display: block;
 }
 @media screen and (max-width: 1200px) {
-  /* line 186, src/_common.scss */
+  /* line 187, src/_common.scss */
   .day .overlay-container .overlay-content, .night .overlay-container .overlay-content {
     left: 20%;
     width: 60%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 186, src/_common.scss */
+  /* line 187, src/_common.scss */
   .day .overlay-container .overlay-content, .night .overlay-container .overlay-content {
     left: 10%;
     width: 80%;
     font-size: 1.6em;
   }
-  /* line 221, src/_common.scss */
+  /* line 222, src/_common.scss */
   .day .overlay-container .overlay-content .places, .night .overlay-container .overlay-content .places {
     max-height: 300px;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 186, src/_common.scss */
+  /* line 187, src/_common.scss */
   .day .overlay-container .overlay-content, .night .overlay-container .overlay-content {
     top: 12%;
     left: 5%;
     width: 95%;
-    min-height: 320px;
     font-size: 1.3em;
   }
-  /* line 234, src/_common.scss */
+  /* line 235, src/_common.scss */
   .day .overlay-container .overlay-content .places, .night .overlay-container .overlay-content .places {
     max-height: 200px;
   }
+  /* line 238, src/_common.scss */
+  .day .overlay-container .overlay-content .places a, .night .overlay-container .overlay-content .places a {
+    padding: 5px 0;
+  }
 }
 @media screen and (max-width: 480px) {
-  /* line 245, src/_common.scss */
+  /* line 250, src/_common.scss */
   .day footer.box-margin, .night footer.box-margin {
-    margin-top: 420px;
+    margin-top: 380px;
   }
 }
 
@@ -9718,19 +9721,23 @@ button.close {
 .night .weather-icon div, .night .weather-icon img {
   color: #fff;
 }
-/* line 21, src/_night.scss */
+/* line 23, src/_night.scss */
+.night .temp .selected {
+  color: #6bc3e8;
+}
+/* line 27, src/_night.scss */
 .night .wi-cloudy, .night .wi-rain, .night .wi-strong-wind {
   color: #66CDF3;
 }
-/* line 25, src/_night.scss */
+/* line 31, src/_night.scss */
 .night .footer {
   border-color: #ccc;
 }
-/* line 29, src/_night.scss */
+/* line 35, src/_night.scss */
 .night .footer a {
   color: #9FBFDA;
 }
-/* line 32, src/_night.scss */
+/* line 38, src/_night.scss */
 .night .footer a:hover, .night .footer a:focus {
   color: #e9f0f6;
 }
@@ -9748,10 +9755,6 @@ button.close {
 /* line 8, src/_day.scss */
 .day a {
   color: #fff;
-}
-/* line 12, src/_day.scss */
-.day .city {
-  color: #999;
 }
 /* line 16, src/_day.scss */
 .day .wi-cloudy, .day .wi-rain, .day .wi-strong-wind {

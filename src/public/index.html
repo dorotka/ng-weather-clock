@@ -52,7 +52,7 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <footer class="footer" ng-class="{'box-margin' : askLocation}">
+    <footer class="footer" ng-class="{'box-margin' : askLocation.show == true}">
       <div class="container">
         <div class="footer-inner text-center">
           <ul class="social list-inline">
@@ -70,15 +70,20 @@
             <a href="https://github.com/twbs/bootstrap-sass">Bootstrap Sass</a>,
             <a href="http://thesassway.com/beginner/getting-started-with-sass-and-compass">Sass</a>,
             <a href="https://developer.forecast.io">Forecast.io</a>,
-            <a href="http://momentjs.com">Moment.js</a>
+            <a href="http://momentjs.com">Moment.js</a>,
+            <a href="https://developers.google.com/maps/documentation/geocoding/intro">Google Geocoding API</a>,
+            <a href="https://developers.google.com/places/web-service/">Google Places WebService</a>,
+            <a href="http://www.geonames.org/">Geonames API</a>,
             and 
             <a href="http://erikflowers.github.io/weather-icons/">Weather icons</a>
             <!-- , 
             <a href="http://designinstruct.com/free-resources/icons/free-icon-set-weather/">
                 Weather icons
             </a> -->
-            .        
+            . 
+            <img src="media/images/powered_by_google_on_non_white.png" alt="">       
           </p>
+
         </div>
       </div>
     </footer>
@@ -104,6 +109,7 @@
      <script src="scripts/app/home/_module.js"></script>
     <script src="scripts/app/home/controllers/HomeCtrl.js"></script>
     <script src="scripts/app/home/services/forecastService.js"></script>
+    <script src="scripts/app/home/services/timezoneService.js"></script>
     <script src="scripts/app/home/filters/dateTimeFilters.js"></script>
     <script src="scripts/app/test-feature/_module.js"></script>
     <script src="scripts/app/test-feature/controllers/TestFeatureCtrl.js"></script>

@@ -18,6 +18,12 @@
 			color: $base-text;
 		}
 	}
+
+	.temp{
+		.selected{
+			color: #6bc3e8;
+		}
+	}
 	.wi-cloudy, .wi-rain, .wi-strong-wind{
 		color: $night-cloudy;
 	}
