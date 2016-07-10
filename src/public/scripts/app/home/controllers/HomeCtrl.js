@@ -23,6 +23,9 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 /* Time and date related functions */
 
 	$scope.getCurrentLocalTime = function(){
+
+		//TODO: get time for the specific locations selected
+		
 		$scope.now = moment().format('hh:mm A');
 		var tickInterval = 1000;
 		
@@ -50,28 +53,40 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 /* Weather related functions */
 
     $scope.getWeather = function(lat, lon, unit){
-
+    	var currentData;
+    	
         function setConditions(data){
-            // console.log("Weather", data );
-            $scope.currently = data.currently;
-            $scope.daily = data.daily;
-            $scope.hourly = data.hourly;
-            $scope.weatherTimezone = data.timezone;
-            $scope.alerts = data.alerts;
+        	
+
+        	if(unit == 'ca'){
+        		$scope.cData = data;
+        		currentData = $scope.cData;
+        	} else {
+        		$scope.fData = data;
+        		currentData = $scope.fData;
+        	}
+
+            // console.log("Weather", currentData );
+            $scope.currently = currentData.currently;
+            $scope.daily = currentData.daily;
+            $scope.hourly = currentData.hourly;
+            $scope.weatherTimezone = currentData.timezone;
+            $scope.alerts = currentData.alerts;
             $scope.weatherTime = $scope.currently.time;
             $scope.assignIcons($scope.currently);
             $scope.assignIcons($scope.hourly.data);
             $scope.formatDates();
             // console.log("$scope.hourly", $scope.hourly);
         }
-
-        ForecastService.getWeather(setConditions, lat,  lon, unit);
+        
+        //TODO: change to true call
+        // ForecastService.getWeather(setConditions, lat,  lon, unit);
 
         //get static weather data
-        /*ForecastService.getFakeWeather().get()
+        ForecastService.getFakeWeather().get()
 		.$promise.then(
 		    setConditions
-		);*/
+		);
 	};
 
 	$scope.formatDates = function(){
@@ -138,10 +153,10 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
 	$scope.getLocation = function(){
 
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(getPosition, showErr);
+        if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+        		navigator.geolocation.getCurrentPosition(getPosition, showErr);
         } else {
-            loc = "Geolocation is not supported by this browser.";
+            $scope.askLocation = true;
         }
 
         function getPosition(position) {
@@ -154,7 +169,50 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval) {
 
         function showErr (response){
         	console.log("Error", response);
+        	$scope.askLocation = true;
         }
+    };
+
+    $scope.searchcity = function(searchString){
+        var service = new google.maps.places.AutocompleteService();
+        if(searchString != ''){
+	        service.getPlacePredictions({'input': searchString, 'types': ['(cities)']}, function(predictions, status){
+	        	console.log("predictions", predictions, status);
+	        	$scope.places = predictions;
+	        });
+        }
+    };
+
+    $scope.selectPlace = function(place){
+    	console.log("place", place);
+    	$scope.city = { 'long_name' : place.terms[0].value};
+    	var id = place.id;
+    	console.log('placeId', id);
+
+		$scope.getLatLng($scope.city.long_name);
+    };
+
+    $scope.getLatLng = function(city){
+        $scope.geocoder.geocode({'address': city}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+            	// console.log("result", results);
+			    if(results.length && results.length > 0){
+			    	$scope.lat = results[0].geometry.location.lat();
+			    	$scope.lon = results[0].geometry.location.lng();
+			    } else{
+			    	if(results.geometry){
+				    	$scope.lat = results.geometry.location.lat();
+				    	$scope.lon = results.geometry.location.lng();
+			    	}
+			    }
+
+			    $scope.getWeather($scope.lat, $scope.lon, $scope.unit);
+			    $scope.askLocation = false;
+            } else {
+                console.log("Geocoder failed due to: " + status);
+            }
+        });
+
     };
 
     $scope.initGeocoder = function(){
