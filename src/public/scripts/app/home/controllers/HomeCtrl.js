@@ -61,7 +61,6 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval, TimezoneService)
     	
         function setConditions(data){
         	
-
         	if(unit == 'ca'){
         		$scope.cData = data;
         		currentData = $scope.cData;
@@ -151,7 +150,16 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval, TimezoneService)
 		if(!unit || $scope.unit == unit) return;
 		$scope.currently.temperature = null;
 		$scope.unit = unit;
-		$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
+		if(unit == 'ca'){
+    		currentData = $scope.cData;
+    	} else {
+    		if(!$scope.fData){
+    			$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
+    		} else{
+    			currentData = $scope.fData;
+    		}
+    	}
+		
 	};
 
 /* Location related functions */
