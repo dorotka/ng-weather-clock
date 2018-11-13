@@ -5,6 +5,7 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval, TimezoneService)
 	$scope.init = function(){
 		// variables 
 		//$scope.loading = true;
+		var currentData;
 		// units can be 'us' for F or 'si'/'ca' for C
 		$scope.unit = 'ca';
 		// can be 'night' or 'day'
@@ -55,33 +56,31 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval, TimezoneService)
 	};
 
 /* Weather related functions */
+	
+	function setConditions(data){
+        	
+    	if($scope.unit == 'ca'){
+    		$scope.cData = data;
+    		currentData = $scope.cData;
+    	} else {
+    		$scope.fData = data;
+    		currentData = $scope.fData;
+    	}
+
+        // console.log("Weather", currentData );
+        $scope.currently = currentData.currently;
+        $scope.daily = currentData.daily;
+        $scope.hourly = currentData.hourly;
+        $scope.weatherTimezone = currentData.timezone;
+        $scope.alerts = currentData.alerts;
+        $scope.weatherTime = $scope.currently.time;
+        $scope.assignIcons($scope.currently);
+        $scope.assignIcons($scope.hourly.data);
+        $scope.formatDates();
+        // console.log("$scope.hourly", $scope.hourly);
+    }
 
     $scope.getWeather = function(lat, lon, unit){
-    	var currentData;
-    	
-        function setConditions(data){
-        	
-        	if(unit == 'ca'){
-        		$scope.cData = data;
-        		currentData = $scope.cData;
-        	} else {
-        		$scope.fData = data;
-        		currentData = $scope.fData;
-        	}
-
-            // console.log("Weather", currentData );
-            $scope.currently = currentData.currently;
-            $scope.daily = currentData.daily;
-            $scope.hourly = currentData.hourly;
-            $scope.weatherTimezone = currentData.timezone;
-            $scope.alerts = currentData.alerts;
-            $scope.weatherTime = $scope.currently.time;
-            $scope.assignIcons($scope.currently);
-            $scope.assignIcons($scope.hourly.data);
-            $scope.formatDates();
-            // console.log("$scope.hourly", $scope.hourly);
-        }
-        
         //TODO: change to true call
         ForecastService.getWeather(setConditions, lat,  lon, unit);
 
@@ -148,15 +147,15 @@ function HomeCtrl($scope, ForecastService, $timeout, $interval, TimezoneService)
 	//method changes units in use and sends another request for data since changing units will also change daily, hourly units + wind speed units etc..
 	$scope.changeUnit = function(unit){
 		if(!unit || $scope.unit == unit) return;
-		$scope.currently.temperature = null;
+		// $scope.currently.temperature = null;
 		$scope.unit = unit;
 		if(unit == 'ca'){
-    		currentData = $scope.cData;
+    		setConditions($scope.cData);
     	} else {
     		if(!$scope.fData){
     			$scope.getWeather($scope.lat, $scope.lon, $scope.unit);
     		} else{
-    			currentData = $scope.fData;
+    			setConditions($scope.fData);
     		}
     	}
 		
